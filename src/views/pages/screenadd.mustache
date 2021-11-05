@@ -1,0 +1,26 @@
+{{>partials/header}}
+
+    <main>
+        <h1>Screen Add</h1>
+
+        <fieldset>
+            <legend>Adicionar novo usuário</legend>
+            <form method="POST" action="/new-user">
+                <input type="text" name="firstname" placeholder="Digite seu primeiro nome"/>
+                <input type="text" name="lastname" placeholder="Digite seu último nome"/>
+                <input type="email" name="email" placeholder="Digite seu email"/>
+                <input type="text" name="age" placeholder="Digite sua idade"/>
+                <input type="text" name="interests" placeholder="Digite seus interesses (separado por vírgula)"/>
+                <input type="submit" value="Enviar"/>
+            </form>
+        </fieldset>
+
+        {{#users}}
+            <div style="display: flex">
+                <li>Nome completo: {{name.firstName}} {{name.lastName}} - Idade: {{age}}</li>
+                <a href="/editar/{{_id}}">Editar</a> - <a href="/delete/{{_id}}">Deletar</a>
+            </div>
+        {{/users}}
+    </main>
+
+{{>partials/footer}}
